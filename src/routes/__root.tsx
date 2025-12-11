@@ -1,12 +1,12 @@
-import * as React from 'react'
-import { Outlet, createRootRoute } from '@tanstack/react-router'
+import * as React from 'react';
+import { Outlet, createRootRoute } from '@tanstack/react-router';
 
 export const Route = createRootRoute({
   component: RootComponent,
-})
+});
 
-const headerHeight = 60
-const footerHeight = 50
+const headerHeight = 60;
+const footerHeight = 50;
 
 function RootComponent() {
   return (
@@ -44,7 +44,7 @@ function RootComponent() {
           overflowY: 'auto',
           padding: '20px',
           marginTop: headerHeight + 30,
-          marginBottom: footerHeight
+          marginBottom: footerHeight,
         }}
       >
         <section aria-label="Page Content">
@@ -70,5 +70,5 @@ function RootComponent() {
         © 2025 Pokemon Viewer App
       </footer>
     </React.Fragment>
-  )
+  );
 }
