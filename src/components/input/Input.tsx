@@ -22,6 +22,6 @@ const StyledInput = styled.input`
   }
 `;
 
-export default function Input(props: React.InputHTMLAttributes<HTMLInputElement>) {
+export function Input(props: React.InputHTMLAttributes<HTMLInputElement>) {
   return <StyledInput {...props} />;
 }

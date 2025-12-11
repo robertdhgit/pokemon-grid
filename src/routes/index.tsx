@@ -1,9 +1,19 @@
-import { createFileRoute } from '@tanstack/react-router'
+import { createFileRoute, redirect } from '@tanstack/react-router'
 
 export const Route = createFileRoute('/')({
-  component: RouteComponent,
-})
+  loader: () => {
+    const user = localStorage.getItem('user');
+    if (!user) {
+      throw redirect({
+        to: '/login',
+      });
+    }
+    return { user };
+  },
 
-function RouteComponent() {
-  return <div>Hello "/"!</div>
+  component: HomePage,
+});
+
+function HomePage() {
+  return <h1>Home Page</h1>;
 }
