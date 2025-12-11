@@ -21,8 +21,8 @@ function LoginPage() {
   const onSubmit = (data: LoginForm) => {
     localStorage.setItem('user', data.username);
 
-    throw redirect({
-      to: '/',
+    redirect({
+      to: '/pokemon',
     });
   };
 
