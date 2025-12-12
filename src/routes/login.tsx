@@ -1,6 +1,6 @@
-import { createFileRoute, redirect } from '@tanstack/react-router';
+import { createFileRoute, useRouter } from '@tanstack/react-router';
 import { useForm } from 'react-hook-form';
-import { Button, Input } from '../components';
+import { Button, Input, FormErrorMessage } from '../components';
 
 type LoginForm = {
   username: string;
@@ -17,18 +17,19 @@ function LoginPage() {
     handleSubmit,
     formState: { errors },
   } = useForm<LoginForm>();
+  const router = useRouter();
 
   const onSubmit = (data: LoginForm) => {
     localStorage.setItem('user', data.username);
 
-    redirect({
+    router.navigate({
       to: '/pokemon',
     });
   };
 
   return (
     <section aria-labelledby="login-heading">
-      <h2 id="login-heading">Login</h2>
+      <h1 id="login-heading">Login to Pokemon</h1>
       <form
         onSubmit={handleSubmit(onSubmit)}
         style={{
@@ -41,7 +42,7 @@ function LoginPage() {
           placeholder="Enter your username"
           {...register('username', { required: 'Username is required' })}
         />
-        {errors.username && <p style={{ color: 'red', marginTop: 8 }}>{errors.username.message}</p>}
+        {errors.username && <FormErrorMessage>{errors.username.message}</FormErrorMessage>}
         <Input
           type="password"
           placeholder="Enter your password"
