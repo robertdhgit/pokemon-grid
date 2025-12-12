@@ -21,7 +21,7 @@ export function PokemonCard({ pokemon, onClick }: PokemonCardProps) {
 }
 
 const CardWrapper = styled.div`
-  width: 160px;
+  max-width: 160px;
   cursor: pointer;
   transition:
     transform 0.25s ease,

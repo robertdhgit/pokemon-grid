@@ -1,9 +1,10 @@
 import { createFileRoute } from '@tanstack/react-router';
 import { usePokemonList } from '../hooks/usePokemonList';
-import { Modal, PokemonCard, PokemonGrid } from '../components';
+import { ErrorMessage, LoadingMessage, Modal, PokemonCard, PokemonGrid } from '../components';
 import { useFavorites } from '../hooks/useFavorites';
 import { useState } from 'react';
 import type { Pokemon } from 'pokenode-ts';
+import { EmptyMessage } from '../components/message';
 
 export const Route = createFileRoute('/pokemon')({
   component: RouteComponent,
@@ -14,9 +15,9 @@ function RouteComponent() {
   const { toggleFavorite, isFavorite } = useFavorites();
   const [selected, setSelected] = useState<Pokemon | null>(null);
 
-  if (isLoading) return <p>Loading Pokemons...</p>;
-  if (error) return <p>Error loading pokemons</p>;
-  if (!data) return <p>No pokemons showing</p>;
+  if (isLoading) return <LoadingMessage>Loading Pokemons...</LoadingMessage>;
+  if (error) return <ErrorMessage>Error loading pokemons</ErrorMessage>;
+  if (!data) return <EmptyMessage>No pokemons showing</EmptyMessage>;
 
   return (
     <section aria-labelledby="pokemon-heading">

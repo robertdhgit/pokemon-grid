@@ -1,6 +1,6 @@
 import { createFileRoute, useRouter } from '@tanstack/react-router';
 import { useForm } from 'react-hook-form';
-import { Button, Input, FormErrorMessage } from '../components';
+import { Button, Input, ErrorMessage } from '../components';
 
 type LoginForm = {
   username: string;
@@ -42,7 +42,7 @@ function LoginPage() {
           placeholder="Enter your username"
           {...register('username', { required: 'Username is required' })}
         />
-        {errors.username && <FormErrorMessage>{errors.username.message}</FormErrorMessage>}
+        {errors.username && <ErrorMessage>{errors.username.message}</ErrorMessage>}
         <Input
           type="password"
           placeholder="Enter your password"
