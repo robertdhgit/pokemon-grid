@@ -1,7 +1,7 @@
 import { createFileRoute } from '@tanstack/react-router';
-import { usePokemonList } from '../hooks/usePokemonList';
+import { usePokemonList } from '../hooks/usePokemonList/usePokemonList';
 import { ErrorMessage, LoadingMessage, Modal, PokemonCard, PokemonGrid } from '../components';
-import { useFavorites } from '../hooks/useFavorites';
+import { useFavorites } from '../hooks/useFavorites/useFavorites';
 import { useState } from 'react';
 import type { Pokemon } from 'pokenode-ts';
 import { EmptyMessage } from '../components/message';
