@@ -1,4 +1,4 @@
-# Devicie code test
+# Pokemon Grid
 This is a pure frontend application built with Vite, React, Typescript and Styled Components, designed to display and filter customer data, showcasing best practices in performance, responsiveness, test coverage and code quality.
 
 ## 1. Local Environment Setup
